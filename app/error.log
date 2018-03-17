@@ -1,0 +1,188 @@
+2018/03/14 22:01:21 [error] 6#6: *1 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: example.com, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:01:22 [error] 6#6: *2 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: example.com, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:01:55 [error] 6#6: *3 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: example.com, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:43 [error] 7#7: *1 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:43 [error] 7#7: *2 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:44 [error] 7#7: *3 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:44 [error] 7#7: *4 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:44 [error] 7#7: *5 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:44 [error] 7#7: *6 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:03:46 [error] 7#7: *7 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:07:32 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:32 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:32 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:33 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:33 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:33 [error] 7#7: *1 open() "/var/www/app/frontend/web/frontend/web/index.php" failed (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET /frontend/web/index.php HTTP/1.1", host: "localhost"
+2018/03/14 22:07:35 [error] 7#7: *1 "/var/www/app/frontend/web/index.php" is not found (2: No such file or directory), client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:09:20 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:09:20 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:09:20 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:09:21 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:09:30 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:09:31 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2018/03/14 22:10:41 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:42 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:42 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:43 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:43 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:43 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:43 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:10:47 [crit] 6#6: *1 connect() to unix:/var/run/php-fpm/example.socket failed (2: No such file or directory) while connecting to upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/example.socket:", host: "localhost"
+2018/03/14 22:16:41 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:16:42 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:16:42 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:16:45 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:47 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:48 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:48 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:48 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:49 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:49 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:21:49 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:22:53 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:22:54 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:22:54 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:22:54 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:27:41 [error] 11#11: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:27:41 [error] 11#11: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:27:44 [error] 11#11: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:39:19 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:39:20 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:39:20 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:39:20 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:36 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:36 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:40:36 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:41:26 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:41:31 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:41:39 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:43:14 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:15 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:15 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:15 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:15 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:16 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:16 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 22:43:20 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:43:57 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:43:58 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:43:58 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:44:40 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:44:40 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:44:40 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:25 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:26 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:26 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:26 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:26 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2018/03/14 22:48:35 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:07:20 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:07:21 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:07:21 [error] 10#10: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:09:46 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:09:46 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:09:47 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:09:47 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:09:47 [error] 7#7: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:34 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:34 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:13:35 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:14:12 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:14:12 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:14:12 [error] 6#6: *1 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:19:39 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:19:39 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:19:40 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:19:40 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/14 23:19:40 [error] 6#6: *2 no resolver defined to resolve php, client: 172.21.0.1, server: localhost, request: "GET /frontend/web/ HTTP/1.1", host: "localhost"
+2018/03/17 11:17:37 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:37 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:38 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:38 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:39 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:39 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:40 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:40 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:41 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:41 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:42 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/frontend/web/index.php on line 5. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/ww" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
+2018/03/17 11:17:42 [error] 7#7: *1 FastCGI sent in stderr: "w/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_start(): Cannot send session cache limiter - headers already sent (output started at /var/www/frontend/web/index.php:5) in /var/www/vendor/yiisoft/yii2/web/Session.php:137
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_start()...', '/var/www/vendor...', 137, Array)
+#1 /var/www/vendor/yiisof" while reading upstream, client: 172.21.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.21.0.3:9000", host: "localhost"
