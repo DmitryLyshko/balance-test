@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Client;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -72,7 +73,25 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $client = Client::find()->where(['id' => 1])->one();
+        $balanse = $client->getBalances()->one();
+        $bills = $client->getBills()->all();
+
+        return $this->render('index', ['balance' => $balanse->sum, 'bills' => $bills]);
+    }
+
+    /**
+     * Costs action
+     *
+     * @return string
+     */
+    public function actionCosts()
+    {
+        $client = Client::find()->where(['id' => 1])->one();
+        $balanse = $client->getBalances()->one();
+        $costs = $client->getCosts()->all();
+
+        return $this->render('costs', ['balance' => $balanse->sum, 'costs' => $costs]);
     }
 
     /**

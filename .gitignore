@@ -2,4 +2,6 @@ logs
 mysql
 .idea
 app/vendor/
+app/access.log
+app/error.log
 

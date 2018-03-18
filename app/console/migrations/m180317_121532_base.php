@@ -14,7 +14,7 @@ class m180317_121532_base extends Migration
     {
         $columns = [
             'id' => $this->primaryKey(),
-            'type_id' => $this->smallInteger(8)
+            'type_id' => $this->smallInteger(2)->notNull()
         ];
 
         $this->createTable('client', $columns);
@@ -23,7 +23,7 @@ class m180317_121532_base extends Migration
         $columns = [
             'id' => $this->primaryKey(),
             'client_id' => $this->smallInteger(11),
-            'sum' => $this->smallInteger(8),
+            'sum' => $this->smallInteger(8)->notNull(),
         ];
         $this->createTable('balance', $columns);
 

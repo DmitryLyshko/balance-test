@@ -15,9 +15,9 @@ class m180317_150840_costs extends Migration
         $columns = [
             'id' => $this->primaryKey(),
             'client_id' => $this->smallInteger(11),
-            'date_from' => $this->smallInteger(15),
-            'date_to' => $this->smallInteger(15),
-            'sum' => $this->integer(8)
+            'date_from' => $this->dateTime()->notNull(),
+            'date_to' => $this->dateTime()->notNull(),
+            'sum' => $this->integer(8)->notNull()
         ];
 
         $this->createTable('costs', $columns);
