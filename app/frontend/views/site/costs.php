@@ -11,7 +11,7 @@ $this->title = 'Costs';
     <p>Balance: <mark><?= Html::encode($balance) ?></mark></p>
     <ul class="nav nav-tabs">
         <li><a href="/">Платежи</a></li>
-        <li class="active"><a href="/index.php?r=site%2Fcosts">Расходы</a></li>
+        <li class="active"><a href="/costs">Расходы</a></li>
     </ul>
     <table class="table table-striped">
         <thead>

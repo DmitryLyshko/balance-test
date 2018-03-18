@@ -11,7 +11,7 @@ $this->title = 'My Yii Test Application';
     <p>Balance: <mark><?= Html::encode($balance) ?></mark></p>
     <ul class="nav nav-tabs">
         <li class="active"><a href="/">Платежи</a></li>
-        <li><a href="/index.php?r=site%2Fcosts">Расходы</a></li>
+        <li><a href="/costs">Расходы</a></li>
     </ul>
     <table class="table table-striped">
         <thead>
