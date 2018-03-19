@@ -1,6 +1,8 @@
 <?php
+
 namespace backend\controllers;
 
+use backend\models\ClientForm;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -60,7 +62,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $client = new ClientForm();
+        if ($client->load(\Yii::$app->request->post())) {
+            if ($client->validate()) {
+                $client->save();
+            }
+        }
+
+        return $this->render('index', ['model' => $client, 'clients' => $client::find()->all()]);
     }
 
     /**

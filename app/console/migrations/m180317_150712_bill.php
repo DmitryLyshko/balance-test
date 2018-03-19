@@ -22,6 +22,7 @@ class m180317_150712_bill extends Migration
         ];
 
         $this->createTable('bill', $columns);
+        $this->alterColumn('bill', 'id', $this->smallInteger(11) . 'NOT NULL AUTO_INCREMENT');
 
         $this->addForeignKey(
             'fk_bill_client_id',

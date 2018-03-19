@@ -21,6 +21,7 @@ class m180317_150840_costs extends Migration
         ];
 
         $this->createTable('costs', $columns);
+        $this->alterColumn('costs', 'id', $this->smallInteger(11) . 'NOT NULL AUTO_INCREMENT');
 
         $this->addForeignKey(
             'fk_costs_client_id',

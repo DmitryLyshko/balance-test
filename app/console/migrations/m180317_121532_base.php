@@ -18,7 +18,7 @@ class m180317_121532_base extends Migration
         ];
 
         $this->createTable('client', $columns);
-        $this->alterColumn('client', 'id', $this->smallInteger(11));
+        $this->alterColumn('client', 'id', $this->smallInteger(11) . 'NOT NULL AUTO_INCREMENT');
 
         $columns = [
             'id' => $this->primaryKey(),
@@ -26,6 +26,7 @@ class m180317_121532_base extends Migration
             'sum' => $this->smallInteger(8)->notNull(),
         ];
         $this->createTable('balance', $columns);
+        $this->alterColumn('balance', 'id', $this->smallInteger(11) . 'NOT NULL AUTO_INCREMENT');
 
         $this->addForeignKey(
             'fk_balance',

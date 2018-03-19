@@ -74,10 +74,16 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $client = Client::find()->where(['id' => 1])->one();
-        $balanse = $client->getBalances()->one();
-        $bills = $client->getBills()->all();
 
-        return $this->render('index', ['balance' => $balanse->sum, 'bills' => $bills]);
+        $bills = [];
+        $balance = new \stdClass();
+        $balance->sum = 0;
+        if ($client) {
+            $balance = $client->getBalances()->one();
+            $bills = $client->getBills()->all();
+        }
+
+        return $this->render('index', ['balance' => $balance->sum, 'bills' => $bills]);
     }
 
     /**

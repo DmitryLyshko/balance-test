@@ -3,15 +3,16 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Costs';
 ?>
 
 <div class="site-index">
-    <p>Balance: <mark><?= Html::encode($balance) ?></mark></p>
+    <p>Balance: <mark><?=Html::encode($balance) ?></mark></p>
     <ul class="nav nav-tabs">
-        <li><a href="/">Платежи</a></li>
-        <li class="active"><a href="/costs">Расходы</a></li>
+        <li><a href="<?=Url::to(['site/'])?>">Платежи</a></li>
+        <li class="active"><a href="<?=Url::to(['site/costs'])?>">Расходы</a></li>
     </ul>
     <table class="table table-striped">
         <thead>
