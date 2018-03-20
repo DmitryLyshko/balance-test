@@ -2,8 +2,10 @@
 
 namespace backend\controllers;
 
-use backend\models\ClientForm;
+use app\models\Costs;
+use frontend\models\Client;
 use Yii;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -28,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'info', 'cost'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -62,7 +64,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $client = new ClientForm();
+        $client = new Client();
         if ($client->load(\Yii::$app->request->post())) {
             if ($client->validate()) {
                 $client->save();
@@ -70,6 +72,57 @@ class SiteController extends Controller
         }
 
         return $this->render('index', ['model' => $client, 'clients' => $client::find()->all()]);
+    }
+
+    /**
+     * Client info
+     *
+     * @return string
+     */
+    public function actionInfo()
+    {
+        $id = (int) Yii::$app->request->get('id');
+        $client = Client::find()->where(['id' => $id])->one();
+
+        $bills = [];
+        $costs = [];
+        $balance = new \stdClass();
+        $balance->sum = 0;
+        if ($client) {
+            $balance = $client->getBalances()->one();
+            $bills = $client->getBills()->all();
+            $costs = $client->getCosts()->all();
+        }
+
+        return $this->render(
+            'info',
+            [
+                'client' => $client,
+                'balance' => $balance->sum,
+                'bills' => $bills,
+                'costs' => $costs
+            ]
+        );
+    }
+
+    /**
+     * Add cost client
+     *
+     * @return string
+     */
+    public function actionCost()
+    {
+        $id = (int) Yii::$app->request->get('id');
+        $costs = new Costs();
+        $data = $costs->dateToTimestamp(\Yii::$app->request->post());
+        if ($costs->load($data)) {
+            if ($costs->validate()) {
+                $costs->save();
+                $this->redirect(Url::to(["/info/{$id}"]));
+            }
+        }
+
+        return $this->render('costclient', ['model' => $costs, 'client_id' => $id]);
     }
 
     /**

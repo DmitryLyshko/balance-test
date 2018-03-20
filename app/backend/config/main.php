@@ -44,6 +44,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'index' => 'site/',
+                'info/<id:\d+>' => 'site/info',
+                'cost/<id:\d+>' => 'site/cost',
             ],
         ],
     ],

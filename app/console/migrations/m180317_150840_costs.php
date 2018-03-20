@@ -15,8 +15,8 @@ class m180317_150840_costs extends Migration
         $columns = [
             'id' => $this->primaryKey(),
             'client_id' => $this->smallInteger(11),
-            'date_from' => $this->dateTime()->notNull(),
-            'date_to' => $this->dateTime()->notNull(),
+            'date_from' => $this->integer(32)->notNull(),
+            'date_to' => $this->integer(32)->notNull(),
             'sum' => $this->integer(8)->notNull()
         ];
 

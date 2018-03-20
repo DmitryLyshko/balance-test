@@ -16,8 +16,8 @@ class m180317_150712_bill extends Migration
             'id' => $this->primaryKey(),
             'client_id' => $this->smallInteger(11),
             'type_id' => $this->smallInteger(2),
-            'date_from' => $this->dateTime()->notNull(),
-            'date_to' => $this->dateTime()->notNull(),
+            'date_from' => $this->integer(32)->notNull(),
+            'date_to' => $this->integer(32)->notNull(),
             'sum' => $this->integer(8)->notNull()
         ];
 

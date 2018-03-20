@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
         <tbody>
         <? foreach ($clients as $client): ?>
             <tr>
-                <th scope="row"><?= Html::encode($client->id) ?></th>
+                <th scope="row"><a href="<?=Url::to(["/info/{$client->id}"])?>"><?= Html::encode($client->id) ?></a></th>
                 <? if ($client->type_id === 1):  ?>
                     <td>Предоплата</td>
                 <? else :?>
