@@ -31,7 +31,9 @@ class Costs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['client_id', 'date_from', 'date_to', 'sum'], 'integer'],
+            [['date_from', 'date_to',], 'string'],
+            [['date_from', 'date_to',], 'required'],
+            [['client_id', 'sum'], 'integer'],
             [['client_id'], 'exist', 'skipOnError' => true, 'targetClass' => Client::className(), 'targetAttribute' => ['client_id' => 'id']],
         ];
     }

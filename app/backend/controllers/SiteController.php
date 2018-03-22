@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
-use app\models\Costs;
+use frontend\models\Bill;
 use frontend\models\Client;
+use frontend\models\Costs;
 use Yii;
+use yii\base\Model;
+use yii\db\StaleObjectException;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -30,7 +33,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'info', 'cost'],
+                        'actions' => ['logout', 'index', 'info', 'cost', 'bill', 'update'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -98,7 +101,7 @@ class SiteController extends Controller
             'info',
             [
                 'client' => $client,
-                'balance' => $balance->sum,
+                'balance' => $balance->sum?: 0,
                 'bills' => $bills,
                 'costs' => $costs
             ]
@@ -112,17 +115,81 @@ class SiteController extends Controller
      */
     public function actionCost()
     {
-        $id = (int) Yii::$app->request->get('id');
+        $id = (int) Yii::$app->request->get('client');
         $costs = new Costs();
-        $data = $costs->dateToTimestamp(\Yii::$app->request->post());
-        if ($costs->load($data)) {
+        if ($costs->load($this->dateToTimestamp(\Yii::$app->request->post(), 'Costs'))) {
             if ($costs->validate()) {
                 $costs->save();
                 $this->redirect(Url::to(["/info/{$id}"]));
             }
         }
 
-        return $this->render('costclient', ['model' => $costs, 'client_id' => $id]);
+        return $this->render('costform', ['model' => $costs, 'client_id' => $id]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionBill()
+    {
+        $id = (int) Yii::$app->request->get('client');
+        $bill_id = (int) Yii::$app->request->get('bill');
+        $bill = new Bill();
+
+        $bill->load($this->dateToTimestamp(\Yii::$app->request->post(), 'Bill'));
+        if ($bill->validate()) {
+            $bill->save();
+            return $this->redirect(Url::to(["/info/{$id}"]));
+        }
+
+        return $this->render('billform', ['model' => $bill, 'client_id' => $id, 'pay' => $bill_id]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionUpdate()
+    {
+        $id = (int) Yii::$app->request->get('client');
+        $bill = Bill::findOne((int) Yii::$app->request->get('bill'));
+        if (!$bill) {
+            return $this->redirect(Url::to(["/info/{$id}"]));
+        }
+
+        $data = $this->dateToTimestamp(\Yii::$app->request->post(), 'Bill');
+
+        if ($data !== []) {
+            $bill->sum = $data['Bill']['sum'];
+            $bill->type_id = $data['Bill']['type_id'];
+            $bill->date_from = $data['Bill']['date_from'];
+            $bill->date_to = $data['Bill']['date_to'];
+        }
+
+        if ($bill->validate()) {
+            $bill->save();
+            return $this->redirect(Url::to(["/info/{$id}"]));
+        }
+
+        return $this->render('updatebillform', ['model' => $bill, 'client_id' => $id]);
+    }
+
+    /**
+     * @param array $data
+     * @param string $model_name
+     * @return array
+     */
+    private function dateToTimestamp(array $data = [], string $model_name): array
+    {
+        if ($data !== []) {
+            foreach ($data[$model_name] as $key => $val) {
+                if ($key === 'date_from' || $key === 'date_to') {
+                    $date_time = new \DateTime($data[$model_name][$key]);
+                    $data[$model_name][$key] = (string) $date_time->getTimestamp();
+                }
+            }
+        }
+
+        return $data;
     }
 
     /**

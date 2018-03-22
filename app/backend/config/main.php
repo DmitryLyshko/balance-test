@@ -45,7 +45,9 @@ return [
             'rules' => [
                 'index' => 'site/',
                 'info/<id:\d+>' => 'site/info',
-                'cost/<id:\d+>' => 'site/cost',
+                'cost' => 'site/cost',
+                'bill' => 'site/bill',
+                'bill/update/' => 'site/update',
             ],
         ],
     ],
