@@ -11,8 +11,8 @@ $this->title = 'Costs';
 <div class="site-index">
     <p>Balance: <mark><?=Html::encode($balance) ?></mark></p>
     <ul class="nav nav-tabs">
-        <li><a href="<?=Url::to(['site/'])?>">Платежи</a></li>
-        <li class="active"><a href="<?=Url::to(['site/costs'])?>">Расходы</a></li>
+        <li><a href="<?=Url::to(['site/?id=' . Yii::$app->request->get('id')])?>">Платежи</a></li>
+        <li class="active"><a href="<?=Url::to(['site/costs/?id=' . Yii::$app->request->get('id')])?>">Расходы</a></li>
     </ul>
     <table class="table table-striped">
         <thead>

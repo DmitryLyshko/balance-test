@@ -9,10 +9,32 @@ $this->title = 'My Yii Test Application';
 ?>
 
 <div class="site-index">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id клиента</th>
+            <th>Тип платежа</th>
+            <th>Баланс</th>
+        </tr>
+        </thead>
+        <tbody>
+        <? foreach ($clients as $client): ?>
+            <tr>
+                <th scope="row"><a href="<?=Url::to(["/?id={$client->id}"])?>"><?= Html::encode($client->id) ?></a></th>
+                <? if ($client->type_id === 1):  ?>
+                    <td>Предоплата</td>
+                <? else :?>
+                    <td>Постоплата</td>
+                <? endif ?>
+                <td><?= Html::encode($client->getBalances()->one()->sum) ?></td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    </table>
     <p>Balance: <mark><?= Html::encode($balance) ?></mark></p>
     <ul class="nav nav-tabs">
         <li class="active"><a href="<?=Url::to(['site/'])?>">Платежи</a></li>
-        <li><a href="<?=Url::to(['site/costs'])?>">Расходы</a></li>
+        <li><a href="<?=Url::to(['site/costs/?id=' . Yii::$app->request->get('id')])?>">Расходы</a></li>
     </ul>
     <table class="table table-striped">
         <thead>

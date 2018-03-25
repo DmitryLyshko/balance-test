@@ -73,7 +73,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $client = Client::find()->where(['id' => 1])->one();
+        $client = Client::find()->where(['id' => Yii::$app->request->get('id')])->one();
 
         $bills = [];
         $balance = new \stdClass();
@@ -83,7 +83,7 @@ class SiteController extends Controller
             $bills = $client->getBills()->all();
         }
 
-        return $this->render('index', ['balance' => $balance->sum, 'bills' => $bills]);
+        return $this->render('index', ['balance' => $balance->sum, 'bills' => $bills, 'clients' => Client::find()->all()]);
     }
 
     /**
@@ -93,11 +93,14 @@ class SiteController extends Controller
      */
     public function actionCosts()
     {
-        $client = Client::find()->where(['id' => 1])->one();
-        $balanse = $client->getBalances()->one();
-        $costs = $client->getCosts()->all();
+        $costs = [];
+        $client = Client::find()->where(['id' => Yii::$app->request->get('id')])->one();
+        if ($client) {
+            $balanse = $client->getBalances()->one();
+            $costs = $client->getCosts()->all();
+        }
 
-        return $this->render('costs', ['balance' => $balanse->sum, 'costs' => $costs]);
+        return $this->render('costs', ['balance' => $balanse->sum ?: 0, 'costs' => $costs]);
     }
 
     /**

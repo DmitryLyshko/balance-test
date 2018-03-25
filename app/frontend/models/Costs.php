@@ -32,10 +32,55 @@ class Costs extends \yii\db\ActiveRecord
     {
         return [
             [['date_from', 'date_to',], 'string'],
-            [['date_from', 'date_to',], 'required'],
+            [['date_from', 'date_to', 'sum'], 'required'],
+            [['date_from', 'date_to',], 'validateDate'],
             [['client_id', 'sum'], 'integer'],
             [['client_id'], 'exist', 'skipOnError' => true, 'targetClass' => Client::className(), 'targetAttribute' => ['client_id' => 'id']],
         ];
+    }
+
+    public function validateDate()
+    {
+        if (!$this->isPayment()) {
+            $this->addError('date_from', 'Для периода, нет оплаты или неверные даты периода');
+            $this->addError('date_to', 'Для периода, нет оплаты или неверные даты периода');
+        }
+
+        if (!$this->checkPeriodCost()) {
+            $this->addError('date_from', 'Расход уже существует');
+            $this->addError('date_to', 'Расход уже существует');
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    private function checkPeriodCost(): bool
+    {
+        $cost = $this::find()->where('client_id = :client_id', [':client_id' => $this->client_id])
+            ->andWhere('date_to <= :date_from', [':date_from' => $this->date_from])
+            ->andWhere('date_from >= :date_to', [':date_to' => $this->date_to])
+            ->one();
+
+        if (!$cost) {
+            $cost = $this::find()->where('client_id = :client_id', [':client_id' => $this->client_id])
+                ->andWhere('date_to >= :date_from', [':date_from' => $this->date_from])
+                ->andWhere('date_from <= :date_to', [':date_to' => $this->date_to])
+                ->one();
+        }
+
+        return $cost ? false : true;
+    }
+
+    /**
+     * @return array|Bill|null|\yii\db\ActiveRecord
+     */
+    public function isPayment()
+    {
+        return Bill::find()->where('client_id = :client_id', [':client_id' => $this->client_id])
+            ->andWhere('date_from <= :date_from', [':date_from' => $this->date_from])
+            ->andWhere('date_to >= :date_to', [':date_to' => $this->date_to])
+            ->one();
     }
 
     /**

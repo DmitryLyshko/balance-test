@@ -21,9 +21,9 @@ use Yii;
 class Bill extends \yii\db\ActiveRecord
 {
     private $params_days = [
-        ['interval' => 'P5D', 'start_date' => 'now', 'end_date' => '+ 6 day', 'pay_type' => 0],
-        ['interval' => 'P5D', 'start_date' => '+ 5 day', 'end_date' => '+ 6 day', 'pay_type' => 3],
-        ['interval' => 'P4D', 'start_date' => '+ 11 day', 'end_date' => '+ 99 day', 'pay_type' => 1],
+        ['interval' => 'P5D', 'start_date' => 'now', 'end_date' => '+ 4 day', 'pay_type' => 0],
+        ['interval' => 'P5D', 'start_date' => '+ 5 day', 'end_date' => '+ 9 day', 'pay_type' => 3],
+        ['interval' => 'P4D', 'start_date' => '+ 10 day', 'end_date' => '+ 13 day', 'pay_type' => 1],
     ];
 
     /**
@@ -53,30 +53,29 @@ class Bill extends \yii\db\ActiveRecord
      */
     public function validateDate()
     {
+        if ((int)$this->date_from > (int)$this->date_to) {
+            $this->addError('date_to', 'Неверная дата завершения периода');
+        }
+
         $date_from = new DateTime();
         $date_from->setTimestamp($this->date_from);
-
         $date_to = new DateTime();
         $date_to->setTimestamp($this->date_to);
 
         $from = false;
         $to = false;
         foreach ($this->params_days as $param) {
-            $start_date = new DateTime($param['start_date']);
-            $end_date = new DateTime($param['end_date']);
-            $period = new DatePeriod($start_date, new \DateInterval($param['interval']), $end_date);
-            foreach ($period as $key => $data) {
-                if ($data->format('d-m-Y') === $date_from->format('d-m-Y')) {
-                    $from = true;
-                }
+            $period = new DatePeriod(new DateTime($param['start_date']), new \DateInterval($param['interval']), new DateTime($param['end_date']));
+            if (!$from && $period->getStartDate()->format('d-m-Y') === $date_from->format('d-m-Y')) {
+                $from = true;
+            }
 
-                if ($data->format('d-m-Y') === $date_to->format('d-m-Y')) {
-                    $to = true;
-                }
+            if (!$to && $period->getEndDate()->format('d-m-Y') === $date_to->format('d-m-Y')) {
+                $to = true;
             }
 
             if ($from && $to) {
-                if (!$this->isAlreadyPayment($date_from->getTimestamp(), $date_to->getTimestamp())) {
+                if (!$this->isAlreadyPayment() && !$this->updatePayment()) {
                     $this->addError('type_id', 'У клиента уже есть счет для этого периода');
                 } elseif (!$this->validatePayType($param['pay_type'])) {
                     $this->addError('type_id', 'Неверный тип оплаты для периода');
@@ -94,11 +93,21 @@ class Bill extends \yii\db\ActiveRecord
     }
 
     /**
-     * @param int $date_from
-     * @param int $date_to
      * @return bool
      */
-    private function isAlreadyPayment(int $date_from, int $date_to): bool
+    private function updatePayment(): bool
+    {
+        if (Yii::$app->request->get('bill')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAlreadyPayment(): bool
     {
         $payment = $this::findOne([
             'client_id' => $this->client_id,

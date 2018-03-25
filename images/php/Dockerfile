@@ -11,7 +11,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer --version
 
 # Добавим свой php.ini, можем в нем определять свои значения конфига
-ADD php.ini /etc/php/7.0/cli/
+#ADD php.ini /etc/php/7.0/cli/
 
 WORKDIR /var/www
 

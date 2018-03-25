@@ -2,12 +2,11 @@
 
 namespace backend\controllers;
 
+use backend\calculate\CalculationPeriod;
 use frontend\models\Bill;
 use frontend\models\Client;
 use frontend\models\Costs;
 use Yii;
-use yii\base\Model;
-use yii\db\StaleObjectException;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -112,6 +111,7 @@ class SiteController extends Controller
      * Add cost client
      *
      * @return string
+     * @throws \Exception
      */
     public function actionCost()
     {
@@ -120,6 +120,8 @@ class SiteController extends Controller
         if ($costs->load($this->dateToTimestamp(\Yii::$app->request->post(), 'Costs'))) {
             if ($costs->validate()) {
                 $costs->save();
+                $calculation = new CalculationPeriod($costs);
+                $calculation->calculatePeriod();
                 $this->redirect(Url::to(["/info/{$id}"]));
             }
         }
