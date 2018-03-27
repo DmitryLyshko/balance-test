@@ -13,11 +13,18 @@ services:
         links:
             - php
     php:
-        build: ./images/php
+        build: ./app/
         links:
             - mysql
         volumes:
             - ./app/:/var/www
+
+    migration:
+       build: ./app/
+       links:
+         - mysql
+         - php
+       entrypoint: php yii migrate --interactive=0
 
     mysql:
         image: mysql:5.7
@@ -27,3 +34,4 @@ services:
             - ./mysql:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: secret
+            MYSQL_DATABASE: yii2

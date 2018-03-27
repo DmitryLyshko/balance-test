@@ -4,7 +4,6 @@
  * Yii console bootstrap file.
  */
 
-var_dump(php_ini_loaded_file());
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
