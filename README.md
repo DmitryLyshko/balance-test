@@ -8,9 +8,7 @@ config/main-local.php
 
 Start up
 
-> php init 
-
-> composer install
+> init_app.sh
 
 > docker-compose build
 
